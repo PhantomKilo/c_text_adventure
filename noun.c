@@ -41,3 +41,35 @@ OBJECT *getVisible(const char *intention, const char *noun)
     }
     return obj;
 }
+
+OBJECT *getPossession(OBJECT *from, const char *verb, const char *noun) 
+{
+    OBJECT *obj = NULL;
+    if (from == NULL) 
+    {
+        printf("I don't understand who you want to %s.\n", verb);
+    }
+    else if ((obj = getObject(noun)) == NULL)
+    {
+        printf("I don't understand who you want to %s.\n", verb);
+    }
+    else if (obj == from)
+    {
+        printf("You should not be doing that to %s.\n", obj->description);
+        obj = NULL;
+    }
+    else if (obj->location != from) 
+    {
+        if (from == player) 
+        {
+            printf("You are not holding any %s.\n", noun);
+        }
+        else 
+        {
+            printf("There appears to b no %s you can get from %s.\n",
+                    noun, from->description);
+        }
+        obj = NULL;
+    }
+    return obj;
+}
