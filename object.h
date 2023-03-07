@@ -4,6 +4,13 @@ typedef struct object {
     const char **tags;
     struct object *location;
     struct object *destination;
+    struct object *prospect;
+    const char *details;
+    const char *contents;
+    const char *textGo;
+    int weight;
+    int capacity;
+    int health;
 } OBJECT;
 
 extern OBJECT objs[];
