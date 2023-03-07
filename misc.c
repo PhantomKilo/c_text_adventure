@@ -5,7 +5,7 @@
 
 bool isHolding(OBJECT *conatiner, OBJECT*obj) 
 {
-    return obj != NULL && obj->location == conatiner;
+    return validObject(obj) && obj->location == conatiner;
 }
 
 OBJECT *getPassage(OBJECT *from, OBJECT *to) 
@@ -27,6 +27,7 @@ OBJECT *getPassage(OBJECT *from, OBJECT *to)
 DISTANCE getDistance(OBJECT *from, OBJECT *to) 
 {
     return to == NULL ? distUnknownObject :
+           !validObject(to) ? distNotHere : 
            to == from ? distSelf :
            isHolding(from, to) ? distHeld :
            isHolding(to, from) ? distLocation :
