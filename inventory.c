@@ -14,7 +14,7 @@ void executeGet(const char *noun)
             printf("You should not be doing that to yourself.\n");
             break;
         case distHeld:
-            printf("You already have %s.\n");
+            printf("You already have %s.\n", obj->description);
             break;
         case distOverThere:
             printf("Too far away, move closer please.\n");

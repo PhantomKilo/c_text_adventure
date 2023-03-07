@@ -49,7 +49,7 @@ OBJECT *getVisible(const char *intention, const char *noun)
     else if (obj == &ambiguousNoun) 
     {
         printf("Please be specific about which %s you mean.\n", noun);
-        obj == NULL;
+        obj = NULL;
     }
     return obj;
 }
@@ -81,7 +81,7 @@ OBJECT *getPossession(OBJECT *from, const char *verb, const char *noun)
     {
         printf("Please be specific about which %s you want to %s.\n",
             noun, verb);
-        obj == NULL;
+        obj = NULL;
     }
     else if (obj == from)
     {

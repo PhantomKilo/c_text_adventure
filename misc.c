@@ -33,7 +33,7 @@ DISTANCE getDistance(OBJECT *from, OBJECT *to)
            isHolding(from->location, to) ? distHere :
            isHolding(from, to->location) ? distHeldContained :
            isHolding(from->location, to->location) ? distHereContained :
-           getPassage(from->location, to) != NULL > distOverThere :
+           getPassage(from->location, to) != NULL ? distOverThere :
                                                     distNotHere;
 }
 
