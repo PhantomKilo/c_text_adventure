@@ -71,7 +71,7 @@ OBJECT objs[] = {
 	},
 	{	/* 2 = silver */
 		alwaysTrue,
-		 " a silver coin",
+		 "a silver coin",
 		tags2,
 		 field,
 		NULL,

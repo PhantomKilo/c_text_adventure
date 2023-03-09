@@ -4,8 +4,9 @@ C = object.c misc.c match.c noun.c toggle.c location.c move.c reach.c inventory.
 H = object.h misc.h match.h noun.h toggle.h location.h move.h reach.h inventory.h inventory2.h openclose.h onoff.h parsexec.h
 
 success.txt: lilcave testscript.txt baseline.txt
-	./test.sh
-	mv -f transcript.txt $@
+	./lilcave testscript.txt > transcript.txt
+	cmp baseline.txt transcript.txt
+	mv -f transcript.txt success.txt
 
 lilcave: $(C) $(H)
 	gcc -Wall -Wextra -Wpedantic -Werror $(C) -o $@

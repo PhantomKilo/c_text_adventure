@@ -39,7 +39,7 @@ extern OBJECT objs[];
     capacity    9999
 
 - silver 
-    description " a silver coin"
+    description "a silver coin"
     tags        "silver", "coin", "silver coin"
     location    field
     details     "The coin has an eagle on the obverse."
