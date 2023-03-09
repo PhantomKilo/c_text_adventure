@@ -1,4 +1,4 @@
-extern bool executeGet(bool);
+extern bool executeGet(void);
 extern bool executeDrop(void);
 extern bool executeAsk(void);
 extern bool executeGive(void);

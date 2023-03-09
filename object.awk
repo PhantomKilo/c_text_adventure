@@ -10,22 +10,23 @@ BEGIN {
 /^- / {
     outputRecord(",");
     obj = $2;
-    prop["condition"] = "alwaysTrue";
-    prop["description"] = "NULL";
-    prop["tags"] = "";
-    prop["location"] = "NULL";
-    prop["destination"] = "NULL";
-    prop["prospect"] = "";
-    prop["details"] = "\"You see nothing special.\"";
-    prop["contents"] = "\"You see\"";
-    prop["textGo"] = "\"You really can't get much closer than this.\"";
-    prop["weight"] = "99";
-    prop["capacity"] = "0";
-    prop["health"] = "0";
-    prop["open"] = "cannotBeOpened";
-    prop["close"] = "cannotBeClosed";
-    prop["lock"] = "cannotBeLocked";
-    prop["unlock"] = "cannotBeUnlocked";
+    prop["condition"]       = "alwaysTrue";
+    prop["description"]     = "NULL";
+    prop["tags"]            = "";
+    prop["location"]        = "NULL";
+    prop["destination"]     = "NULL";
+    prop["prospect"]        = "";
+    prop["details"]         = "\"You see nothing special.\"";
+    prop["contents"]        = "\"You see\"";
+    prop["textGo"]          = "\"You really can't get much closer than this.\"";
+    prop["weight"]          = "99";
+    prop["capacity"]        = "0";
+    prop["health"]          = "0";
+    prop["light"]           = "0";
+    prop["open"]            = "cannotBeOpened";
+    prop["close"]           = "cannotBeClosed";
+    prop["lock"]            = "cannotBeLocked";
+    prop["unlock"]          = "cannotBeUnlocked";
 }
 
 obj && /^[ \t]+[a-z]/ {
@@ -79,6 +80,7 @@ function outputRecord(seperator)
             print "\t\t" prop["weight"] ",";
             print "\t\t" prop["capacity"] ",";
             print "\t\t" prop["health"] ",";
+            print "\t\t" prop["light"] ",";
             print "\t\t" prop["open"] ",";
             print "\t\t" prop["close"] ",";
             print "\t\t" prop["lock"] ",";

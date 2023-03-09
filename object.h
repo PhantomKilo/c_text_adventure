@@ -1,21 +1,22 @@
 
 typedef struct object {
-    bool (*condition)(void);
-    const char *description;
-    const char **tags;
+    bool         (*condition)(void);
+    const char    *description;
+    const char   **tags;
     struct object *location;
     struct object *destination;
     struct object *prospect;
-    const char *details;
-    const char *contents;
-    const char *textGo;
-    int weight;
-    int capacity;
-    int health;
-    void (*open)(void);
-    void (*close)(void);
-    void (*lock)(void);
-    void (*unlock)(void);
+    const char    *details;
+    const char    *contents;
+    const char    *textGo;
+    int            weight;
+    int            capacity;
+    int            health;
+    int            light;
+    void        (*open)(void);
+    void        (*close)(void);
+    void        (*lock)(void);
+    void        (*unlock)(void);
 } OBJECT;
 
 extern OBJECT objs[];
@@ -41,7 +42,9 @@ extern OBJECT objs[];
 #define closedBox	(objs + 18)
 #define lockedBox	(objs + 19)
 #define keyForBox	(objs + 20)
+#define lampOff	(objs + 21)
+#define lampOn	(objs + 22)
 
-#define endOfObjs	(objs + 21)
+#define endOfObjs	(objs + 23)
 
 #define validObject(obj)	((obj) != NULL && (*(obj)->condition)())

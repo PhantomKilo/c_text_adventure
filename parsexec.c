@@ -8,6 +8,7 @@
 #include "inventory.h"
 #include "inventory2.h"
 #include "openclose.h"
+#include "onoff.h"
 
 typedef struct
 {
@@ -20,9 +21,9 @@ static bool executeQuit(void)
     return false;
 }
 
-static executeNoMatch(void)
+static bool executeNoMatch(void)
 {
-    const char *src = *parems;
+    const char *src = *params;
     int len;
     for (len = 0; src[len] != '\0' && !isspace(src[len]); len++);
     if (len > 0) printf("I don't know how to '%.*s'.\n", len, src);
@@ -42,7 +43,7 @@ bool parseAndExecute(char *input)
         { "examine A",          executeLook },
         { "go to A",            executeGo },
         { "go A",               executeGo },
-        { "get A from B",       executeGetFrom},
+        { "get A from B",       executeGetFrom },
         { "get A",              executeGet },
         { "put A in B",         executePutIn },
         { "drop A in B",        executePutIn },
@@ -56,6 +57,10 @@ bool parseAndExecute(char *input)
         { "close A",            executeClose },
         { "lock A",             executeLock },
         { "unlock A",           executeUnlock },
+        { "turn on A",          executeTurnOn },
+        { "turn off A",         executeTurnOff },
+        { "turn A on",          executeTurnOn},
+        { "turn A off",         executeTurnOff },
         { "A",                  executeNoMatch }
     };
     const COMMAND *cmd;

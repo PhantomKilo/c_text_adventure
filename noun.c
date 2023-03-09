@@ -41,9 +41,13 @@ OBJECT *getVisible(const char *intention, const char *noun)
         {
             printf("I don't understand %s.\n", intention);
         } 
+        else if (isLit(player->location))
+        {
+            printf("You don't see any %s in here.\n", noun);
+        }
         else 
         {
-            printf("I don't understand %s.\n", intention);
+            printf("It's too dark.\n");
         }        
     }
     else if (obj == &ambiguousNoun) 

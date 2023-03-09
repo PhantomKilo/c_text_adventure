@@ -1,6 +1,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "object.h"
+#include "misc.h"
+#include "location.h"
 
 static void swapLocations(const char *verb1, OBJECT *obj1,
                           const char *verb2, OBJECT *obj2) 
@@ -55,5 +57,14 @@ void toggleBoxLock(void)
     }
 }
 
-
+void toggleLamp(void)
+{
+    bool oldLit = isLit(player->location);
+    swapLocations("turn off", lampOn, "turn on", lampOff);
+    if (oldLit != isLit(player->location))
+    {
+        printf("\n");
+        executeLookAround();
+    }
+}
 
