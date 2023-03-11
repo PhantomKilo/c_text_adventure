@@ -20,10 +20,23 @@ static void talk(const char *about, OBJECT *to)
                 topic == to ? "I don't want to talk about myself."
                             : topic->gossip);
     }
-    return true;
 }
 
 bool executeTalk(void)
+{
+    OBJECT *to = actorHere();
+    if (to != NULL)
+    {
+        talk(params[0], to);
+    }
+    else 
+    {
+        printf("There is nobody to talk to.\n");
+    }
+    return true;
+}
+
+bool executeTalkTo(void)
 {
     OBJECT *to = reachableObject("who to talk to", params[1]);
     if (to != NULL)
